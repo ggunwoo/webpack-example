@@ -3,6 +3,7 @@
 // npx webpack 으로 실행 명령
 
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   mode: "development",
@@ -26,4 +27,16 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./source/index.html",
+      filename: "./index.html",
+      chunks:['index']
+    }),
+    new HtmlWebpackPlugin({
+      template: "./source/about.html",
+      filename: "./about.html",
+      chunks:['about']
+    }),
+  ],
 };
